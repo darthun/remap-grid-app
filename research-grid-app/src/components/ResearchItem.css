@@ -1,0 +1,24 @@
+.research-item {
+    background-color: rgba(100, 255, 218, 0.1);
+    border: 1px solid #64ffda;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .research-item:hover {
+    background-color: rgba(100, 255, 218, 0.2);
+    box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+  }
+  
+  .research-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 3px;
+  }
+  
+  .research-item p {
+    margin: 5px 0 0;
+    color: #64ffda;
+  }
