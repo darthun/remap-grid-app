@@ -143,10 +143,16 @@
         function drop(e) {
             e.preventDefault();
             const cell = e.target.closest('.cell');
-            if (cell && draggedItem && !cell.classList.contains('tech-level') && !cell.classList.contains('group')) {
+            
+            // Ensure the cell is valid and doesn't already contain an image
+            if (cell && draggedItem && !cell.classList.contains('tech-level') && !cell.classList.contains('group') && !cell.querySelector('img')) {
                 cell.appendChild(draggedItem);
                 draggedItem.style.display = 'block';
+            } else {
+                // If the cell already has an image, reset the dragged item to its original position
+                draggedItem.style.display = 'block';
             }
+            
             draggedItem = null;
         }
 
