@@ -144,17 +144,36 @@
             e.preventDefault();
             const cell = e.target.closest('.cell');
             
+            if (!cell) {
+                // Debug: Log if no cell is found
+                console.log('No cell found');
+                return;
+            }
+            
+            // Calculate the position of the cell in the grid
+            const cellIndex = Array.from(cell.parentNode.children).indexOf(cell);
+            const column = cellIndex % 11; // 11 because the grid has 11 columns including the tech levels column
+            const row = Math.floor(cellIndex / 11);
+
+            // Check if the cell is a label cell
+            const isLabelCell = (column === 0 || row === 0); // first column or first row are labels
+
+            // Debug: Log cell information and conditions
+            console.log(`Cell Index: ${cellIndex}, Column: ${column}, Row: ${row}, Is Label Cell: ${isLabelCell}`);
+
             // Ensure the cell is valid and doesn't already contain an image
-            if (cell && draggedItem && !cell.classList.contains('tech-level') && !cell.classList.contains('group') && !cell.querySelector('img')) {
+            if (cell && draggedItem && !isLabelCell && !cell.querySelector('img')) {
+                // Drop the image in the target cell
                 cell.appendChild(draggedItem);
                 draggedItem.style.display = 'block';
             } else {
-                // If the cell already has an image, reset the dragged item to its original position
+                // Reset the dragged item's display and position if the drop is invalid
                 draggedItem.style.display = 'block';
             }
             
             draggedItem = null;
         }
+
 
         createGrid();
     </script>
