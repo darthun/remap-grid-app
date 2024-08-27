@@ -32,23 +32,21 @@ const ResearchGrid = ({ research, setResearch }) => {
   }
 
   return (
-    <div className="research-grid">
-      <div className="research-tiers">
-        {tiers.map((tier) => (
-          <div key={tier} className="research-tier">
-            <h2>{tier}</h2>
-            <div className="tier-columns">
-              <div className="tier-column"></div>
-              <div className="tier-column"></div>
+    <div className="research-grid-container">
+      <div className="research-grid">
+        <div className="grid-header">
+          <div className="category-header">Categories</div>
+          {tiers.map((tier) => (
+            <div key={tier} className="tier-header">
+              {tier}
             </div>
-          </div>
-        ))}
-      </div>
-      <div className="research-categories">
+          ))}
+        </div>
         {categories.map((category) => (
           <ResearchCategory
             key={category.id}
             category={category}
+            tiers={tiers}
             onNameChange={(newName) => updateCategoryName(category.id, newName)}
           />
         ))}

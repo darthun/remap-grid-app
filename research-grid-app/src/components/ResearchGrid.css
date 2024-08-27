@@ -1,74 +1,76 @@
+.research-grid-container {
+  padding: 20px;
+  background-color: #0a192f;
+  color: #64ffda;
+}
+
 .research-grid {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    gap: 20px;
-    padding: 20px;
-    background-color: #0a192f;
-  }
-  
-  .research-tiers {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .research-tier {
-    background-color: rgba(100, 255, 218, 0.1);
-    border: 1px solid #64ffda;
-    border-radius: 5px;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .tier-columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5px;
-    margin-top: 10px;
-  }
-  
-  .tier-column {
-    background-color: rgba(100, 255, 218, 0.05);
-    border: 1px dashed #64ffda;
-    border-radius: 3px;
-    height: 50px;
-  }
-  
-  .research-categories {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-  }
-  
-  .category {
-    background-color: rgba(100, 255, 218, 0.1);
-    border: 1px solid #64ffda;
-    border-radius: 5px;
-    padding: 15px;
-  }
-  
-  .category h2 {
-    color: #64ffda;
-    margin-top: 0;
-    margin-bottom: 15px;
-    cursor: pointer;
-  }
-  
-  .add-category-btn {
-    grid-column: 1 / -1;
-    background-color: #64ffda;
-    color: #0a192f;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .add-category-btn:hover {
-    background-color: #4cdbbd;
-  }
+  display: grid;
+  grid-template-columns: 200px repeat(5, 1fr);
+  gap: 10px;
+}
+
+.grid-header {
+  display: contents;
+}
+
+.category-header,
+.tier-header {
+  background-color: rgba(100, 255, 218, 0.1);
+  border: 1px solid #64ffda;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.category-row {
+  display: contents;
+}
+
+.category-label {
+  background-color: rgba(100, 255, 218, 0.1);
+  border: 1px solid #64ffda;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.category-label h3 {
+  margin: 0;
+  cursor: pointer;
+}
+
+.tier-column {
+  background-color: rgba(100, 255, 218, 0.05);
+  border: 1px dashed #64ffda;
+  border-radius: 5px;
+  min-height: 100px;
+  padding: 10px;
+}
+
+.add-category-btn {
+  background-color: #64ffda;
+  color: #0a192f;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.add-category-btn:hover {
+  background-color: #4cdbbd;
+}
+
+.research-item {
+  background-color: rgba(100, 255, 218, 0.1);
+  border: 1px solid #64ffda;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: move;
+}
