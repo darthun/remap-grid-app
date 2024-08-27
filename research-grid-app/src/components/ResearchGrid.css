@@ -24,6 +24,29 @@
   font-weight: bold;
 }
 
+.tier-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.tier-title {
+  margin-bottom: 5px;
+}
+
+.subcolumns {
+  display: flex;
+  justify-content: space-between;
+  height: 10px; /* Reduced height */
+}
+
+.subcolumn {
+  flex: 1;
+  background-color: rgba(100, 255, 218, 0.05);
+  border: 1px dashed rgba(100, 255, 218, 0.3); /* More subtle border */
+  border-radius: 3px;
+  margin: 0 2px;
+}
+
 .category-row {
   display: contents;
 }
@@ -36,11 +59,8 @@
 }
 
 .tier-column {
-  background-color: rgba(100, 255, 218, 0.05);
-  border: 1px dashed #64ffda;
-  border-radius: 5px;
-  min-height: 100px;
-  padding: 10px;
+  display: flex;
+  gap: 5px;
 }
 
 .add-category-btn {
