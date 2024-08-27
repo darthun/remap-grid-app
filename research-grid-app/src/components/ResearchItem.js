@@ -12,7 +12,7 @@ function ResearchItem({ item, index }) {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
         >
-          <img src={item.image} alt={item.name} />
+          {item.image && <img src={item.image} alt={item.name} />}
           <p>{item.name}</p>
         </div>
       )}

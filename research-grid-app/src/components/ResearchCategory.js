@@ -12,7 +12,8 @@ function ResearchCategory({ category, tiers, onNameChange }) {
   };
 
   const renderTierItems = (tier) => {
-    const tierItems = category.items.filter(item => item.tier === parseInt(tier));
+    const tierNumber = tiers.indexOf(tier) + 1;
+    const tierItems = category.items.filter(item => item.tier === tierNumber);
     return (
       <Droppable droppableId={`category-${category.id}-tier-${tier}`} key={tier}>
         {(provided) => (

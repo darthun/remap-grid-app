@@ -1,83 +1,74 @@
 [
-    {
-      "id": 1,
-      "name": "Nanotech",
-      "items": [
-        {
-          "id": "nano_001",
-          "name": "Basic Nanotech",
-          "tier": 1,
-          "subcolumn": 1,
-          "category_row": 1
-        },
-        {
-          "id": "nano_002",
-          "name": "Advanced Nanoassembly",
-          "tier": 2,
-          "subcolumn": 1,
-          "category_row": 2
-        },
-        {
-          "id": "nano_003",
-          "name": "Quantum Nanostructures",
-          "tier": 3,
-          "subcolumn": 2,
-          "category_row": 3
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "name": "Phase Mastery",
-      "items": [
-        {
-          "id": "phase_001",
-          "name": "Phase Shift Basics",
-          "tier": 1,
-          "subcolumn": 2,
-          "category_row": 1
-        },
-        {
-          "id": "phase_002",
-          "name": "Multidimensional Phasing",
-          "tier": 2,
-          "subcolumn": 2,
-          "category_row": 2
-        },
-        {
-          "id": "phase_003",
-          "name": "Temporal Phase Manipulation",
-          "tier": 4,
-          "subcolumn": 1,
-          "category_row": 3
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "name": "Empire Research",
-      "items": [
-        {
-          "id": "empire_001",
-          "name": "Imperial Expansion I",
-          "tier": 1,
-          "subcolumn": 1,
-          "category_row": 1
-        },
-        {
-          "id": "empire_002",
-          "name": "Galactic Diplomacy",
-          "tier": 3,
-          "subcolumn": 1,
-          "category_row": 2
-        },
-        {
-          "id": "empire_003",
-          "name": "Transcendent Governance",
-          "tier": 5,
-          "subcolumn": 2,
-          "category_row": 3
-        }
-      ]
-    }
-  ]
+  {
+    "id": 1,
+    "name": "Nanotech",
+    "items": [
+      {
+        "id": "nano_001",
+        "name": "Basic Nanotech",
+        "tier": 1,
+        "subcolumn": 1
+      },
+      {
+        "id": "nano_002",
+        "name": "Advanced Nanoassembly",
+        "tier": 2,
+        "subcolumn": 1
+      },
+      {
+        "id": "nano_003",
+        "name": "Quantum Nanostructures",
+        "tier": 3,
+        "subcolumn": 2
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Phase Mastery",
+    "items": [
+      {
+        "id": "phase_001",
+        "name": "Phase Shift Basics",
+        "tier": 1,
+        "subcolumn": 2
+      },
+      {
+        "id": "phase_002",
+        "name": "Multidimensional Phasing",
+        "tier": 2,
+        "subcolumn": 2
+      },
+      {
+        "id": "phase_003",
+        "name": "Temporal Phase Manipulation",
+        "tier": 4,
+        "subcolumn": 1
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Empire Research",
+    "items": [
+      {
+        "id": "empire_001",
+        "name": "Imperial Expansion I",
+        "tier": 1,
+        "subcolumn": 1
+      },
+      {
+        "id": "empire_002",
+        "name": "Galactic Diplomacy",
+        "tier": 3,
+        "subcolumn": 1
+      },
+      {
+        "id": "empire_003",
+        "name": "Transcendent Governance",
+        "tier": 5,
+        "subcolumn": 2
+      }
+    ]
+  }
+]
