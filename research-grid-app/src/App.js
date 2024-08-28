@@ -19,9 +19,11 @@ function App() {
   }, []);
 
   const onDragEnd = (result) => {
-    const { source, destination } = result;
+    console.log("Drag ended:", result);
+    const { source, destination, draggableId } = result;
   
     if (!destination) {
+      console.log("No valid destination, aborting drag operation");
       return;
     }
   
@@ -36,7 +38,8 @@ function App() {
     const sourceCategory = newResearch.find(cat => `category-${cat.id}` === sourceCatId);
     const destCategory = newResearch.find(cat => `category-${cat.id}` === destCatId);
   
-    const [movedItem] = sourceCategory.items.splice(source.index, 1);
+    const movedItemIndex = sourceCategory.items.findIndex(item => item.id === draggableId);
+    const [movedItem] = sourceCategory.items.splice(movedItemIndex, 1);
     
     if (parseInt(sourceTier) !== parseInt(destTier)) {
       movedItem.tier = parseInt(destTier);
@@ -50,6 +53,7 @@ function App() {
       destCategory.items.splice(newIndex, 0, movedItem);
     }
   
+    console.log("Updated research:", newResearch);
     setResearch(newResearch);
   };
 
@@ -62,14 +66,14 @@ function App() {
   }
 
   return (
-    <div className="research-tree">
-      <header className="research-header">
-        <h1>EMPIRE RESEARCH</h1>
-      </header>
-      <DragDropContext onDragEnd={onDragEnd}>
+    <DragDropContext onDragEnd={onDragEnd}>
+      <div className="research-tree">
+        <header className="research-header">
+          <h1>EMPIRE RESEARCH</h1>
+        </header>
         <ResearchGrid research={research} setResearch={setResearch} />
-      </DragDropContext>
-    </div>
+      </div>
+    </DragDropContext>
   );
 }
 

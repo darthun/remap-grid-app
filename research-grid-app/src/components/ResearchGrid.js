@@ -1,4 +1,5 @@
 import React from 'react';
+import { Droppable } from 'react-beautiful-dnd';
 import ResearchCategory from './ResearchCategory';
 import './ResearchGrid.css';
 
@@ -29,12 +30,29 @@ const ResearchGrid = ({ research, setResearch }) => {
           ))}
         </div>
         {research.map((category) => (
-          <ResearchCategory
-            key={category.id}
-            category={category}
-            tiers={tiers}
-            onNameChange={(newName) => updateCategoryName(category.id, newName)}
-          />
+          <div key={category.id} className="category-row">
+            <div className="category-label">
+              <h3 onClick={() => {/* Add edit functionality here */}}>{category.name}</h3>
+            </div>
+            {tiers.map((tier, index) => (
+              <Droppable key={`${category.id}-tier-${index + 1}`} droppableId={`category-${category.id}-tier-${index + 1}`}>
+                {(provided) => (
+                  <div
+                    className="tier-column"
+                    ref={provided.innerRef}
+                    {...provided.droppableProps}
+                  >
+                    <ResearchCategory
+                      category={category}
+                      tier={index + 1}
+                      onNameChange={(newName) => updateCategoryName(category.id, newName)}
+                    />
+                    {provided.placeholder}
+                  </div>
+                )}
+              </Droppable>
+            ))}
+          </div>
         ))}
       </div>
       <button onClick={addCategory} className="add-category-btn">Add Category</button>
