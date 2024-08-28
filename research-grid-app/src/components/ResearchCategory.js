@@ -15,11 +15,11 @@ function ResearchCategory({ category, tiers, onNameChange }) {
     const tierNumber = tiers.indexOf(tier) + 1;
     const tierItems = category.items.filter(item => item.tier === tierNumber);
     return (
-      <Droppable droppableId={`category-${category.id}-tier-${tier}`} key={tier}>
+      <Droppable droppableId={`category-${category.id}-tier-${tierNumber}`} key={tier}>
         {(provided) => (
           <div className="tier-column" ref={provided.innerRef} {...provided.droppableProps}>
             {tierItems.map((item, index) => (
-              <ResearchItem key={item.id} item={item} index={index} />
+              <ResearchItem key={item.id} item={item} index={index} categoryId={category.id} />
             ))}
             {provided.placeholder}
           </div>

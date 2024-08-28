@@ -2,12 +2,12 @@ import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import './ResearchItem.css';
 
-function ResearchItem({ item, index }) {
+function ResearchItem({ item, index, categoryId }) {
   return (
-    <Draggable draggableId={item.id} index={index}>
-      {(provided) => (
+    <Draggable draggableId={`${categoryId}-${item.id}`} index={index}>
+      {(provided, snapshot) => (
         <div
-          className="research-item"
+          className={`research-item ${snapshot.isDragging ? 'is-dragging' : ''}`}
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}

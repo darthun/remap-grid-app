@@ -20,61 +20,46 @@ function App() {
 
   const onDragEnd = (result) => {
     const { source, destination } = result;
-
-    // Dropped outside the list
+  
     if (!destination) {
       return;
     }
-
+  
     const sourceId = source.droppableId;
     const destId = destination.droppableId;
-
-    // Moving within the same category
-    if (sourceId === destId) {
-      const category = research.find(cat => `category-${cat.id}` === sourceId);
-      const newItems = Array.from(category.items);
-      const [reorderedItem] = newItems.splice(source.index, 1);
-      newItems.splice(destination.index, 0, reorderedItem);
-
-      const newResearch = research.map(cat =>
-        cat.id === category.id ? { ...cat, items: newItems } : cat
-      );
-
-      setResearch(newResearch);
-    } else {
-      // Moving between categories
-      const sourceCategory = research.find(cat => `category-${cat.id}` === sourceId);
-      const destCategory = research.find(cat => `category-${cat.id}` === destId);
-
-      const sourceItems = Array.from(sourceCategory.items);
-      const destItems = Array.from(destCategory.items);
-
-      const [movedItem] = sourceItems.splice(source.index, 1);
-      destItems.splice(destination.index, 0, movedItem);
-
-      const newResearch = research.map(cat => {
-        if (cat.id === sourceCategory.id) {
-          return { ...cat, items: sourceItems };
-        }
-        if (cat.id === destCategory.id) {
-          return { ...cat, items: destItems };
-        }
-        return cat;
-      });
-
-      setResearch(newResearch);
+  
+    const [sourceCatId, sourceTier] = sourceId.split('-tier-');
+    const [destCatId, destTier] = destId.split('-tier-');
+  
+    const newResearch = [...research];
+  
+    const sourceCategory = newResearch.find(cat => `category-${cat.id}` === sourceCatId);
+    const destCategory = newResearch.find(cat => `category-${cat.id}` === destCatId);
+  
+    const [movedItem] = sourceCategory.items.splice(source.index, 1);
+    
+    if (parseInt(sourceTier) !== parseInt(destTier)) {
+      movedItem.tier = parseInt(destTier);
     }
+  
+    if (sourceCategory === destCategory) {
+      destCategory.items.splice(destination.index, 0, movedItem);
+    } else {
+      const insertIndex = destCategory.items.findIndex(item => item.tier > parseInt(destTier));
+      const newIndex = insertIndex === -1 ? destCategory.items.length : insertIndex;
+      destCategory.items.splice(newIndex, 0, movedItem);
+    }
+  
+    setResearch(newResearch);
   };
 
   if (error) {
     return <div className="error">Error: {error}</div>;
   }
 
-  if ( !research || research.length === 0) {
+  if (!research || research.length === 0) {
     return <div>Loading...</div>;
   }
-
-  console.log("Current research state:", research);
 
   return (
     <div className="research-tree">
