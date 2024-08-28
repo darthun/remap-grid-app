@@ -4,7 +4,7 @@
     "name": "Nanotech",
     "items": [
       {
-        "id": "nano_001",
+        "id": "nanotech",
         "name": "Basic Nanotech",
         "tier": 1,
         "subcolumn": 1
@@ -16,7 +16,7 @@
         "subcolumn": 1
       },
       {
-        "id": "nano_003",
+        "id": "qnan",
         "name": "Quantum Nanostructures",
         "tier": 3,
         "subcolumn": 2
@@ -28,19 +28,19 @@
     "name": "Phase Mastery",
     "items": [
       {
-        "id": "phase_001",
+        "id": "phasoree",
         "name": "Phase Shift Basics",
         "tier": 1,
         "subcolumn": 2
       },
       {
-        "id": "phase_002",
+        "id": "phase--002",
         "name": "Multidimensional Phasing",
         "tier": 2,
         "subcolumn": 2
       },
       {
-        "id": "phase_003",
+        "id": "tempypf",
         "name": "Temporal Phase Manipulation",
         "tier": 4,
         "subcolumn": 1
@@ -52,19 +52,19 @@
     "name": "Empire Research",
     "items": [
       {
-        "id": "empire_001",
+        "id": "empira",
         "name": "Imperial Expansion I",
         "tier": 1,
         "subcolumn": 1
       },
       {
-        "id": "empire_002",
+        "id": "empireaaa",
         "name": "Galactic Diplomacy",
         "tier": 3,
         "subcolumn": 1
       },
       {
-        "id": "empire_003",
+        "id": "empiraaaaaw",
         "name": "Transcendent Governance",
         "tier": 5,
         "subcolumn": 2
